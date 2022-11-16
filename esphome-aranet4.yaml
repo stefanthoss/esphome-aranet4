@@ -1,0 +1,91 @@
+ble_client:
+  - mac_address: ${aranet4_mac_address}
+    id: ${aranet4_id}
+
+sensor:
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} CO2"
+    state_class: "measurement"
+    device_class: "carbon_dioxide"
+    unit_of_measurement: "ppm"
+    lambda: |-
+      return (x[0] | x[1] << 8);
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Temperature"
+    state_class: "measurement"
+    device_class: "temperature"
+    unit_of_measurement: "°C"
+    lambda: |-
+      return (x[2] | x[3] << 8) / 20.0;
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Pressure"
+    state_class: "measurement"
+    device_class: "pressure"
+    unit_of_measurement: "hPa"
+    lambda: |-
+      return (x[4] | x[5] << 8) / 10.0;
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Humidity"
+    state_class: "measurement"
+    device_class: "humidity"
+    unit_of_measurement: "%"
+    lambda: |-
+      return x[6];
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Battery"
+    state_class: "measurement"
+    device_class: "battery"
+    unit_of_measurement: "%"
+    lambda: |-
+      return x[7];
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Status"
+    state_class: "measurement"
+    lambda: |-
+      return x[8];
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Interval"
+    state_class: "measurement"
+    device_class: "duration"
+    unit_of_measurement: "s"
+    lambda: |-
+      return (x[9] | x[10] << 8);
+  - platform: ble_client
+    type: characteristic
+    ble_client_id: ${aranet4_id}
+    service_uuid: "fce0"
+    characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
+    name: "${aranet4_name} Ago"
+    state_class: "measurement"
+    device_class: "duration"
+    unit_of_measurement: "s"
+    lambda: |-
+      return (x[11] | x[12] << 8);
