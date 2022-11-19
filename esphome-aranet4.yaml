@@ -1,11 +1,11 @@
 ble_client:
   - mac_address: ${aranet4_mac_address}
-    id: ${aranet4_id}
+    id: aranet4
 
 sensor:
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} CO2"
@@ -16,7 +16,7 @@ sensor:
       return (x[0] | x[1] << 8);
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Temperature"
@@ -27,7 +27,7 @@ sensor:
       return (x[2] | x[3] << 8) / 20.0;
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Pressure"
@@ -38,7 +38,7 @@ sensor:
       return (x[4] | x[5] << 8) / 10.0;
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Humidity"
@@ -49,7 +49,7 @@ sensor:
       return x[6];
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Battery"
@@ -60,7 +60,7 @@ sensor:
       return x[7];
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Status"
@@ -69,7 +69,7 @@ sensor:
       return x[8];
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Interval"
@@ -80,7 +80,7 @@ sensor:
       return (x[9] | x[10] << 8);
   - platform: ble_client
     type: characteristic
-    ble_client_id: ${aranet4_id}
+    ble_client_id: aranet4
     service_uuid: "fce0"
     characteristic_uuid: "f0cd3001-95da-4f4b-9ac8-aa55d312af0c"
     name: "${aranet4_name} Ago"
