@@ -1,6 +1,6 @@
 # ESPHome Aranet4
 
-This ESPHome package will read data from an Aranet4 CO2 sensor and expose it as Home Assistant sensors. I use a [ESPHome Bluetooth Proxy](https://esphome.github.io/bluetooth-proxies/) with a ESP32 because it is easy to set up, but any other Bluetooth-enabled ESPHome device will also work.
+This ESPHome package will read data from an Aranet4 CO2 sensor and expose it as Home Assistant entities. I use a [ESPHome Bluetooth Proxy](https://esphome.github.io/bluetooth-proxies/) with a ESP32 because it is easy to set up, but any other Bluetooth-enabled ESPHome device will also work.
 
 I developed this for the Aranet4 Home, but it should also work with the Pro model. In its current form, only one Aranet4 sensor is supported per ESPHome device.
 
@@ -15,7 +15,7 @@ Both of these things can be checked in the Aranet4 Android/iOS mobile app.
 
 ## Usage
 
-First, you have to figure out the MAC address of the Aranet4 device. You can do this by pairing your phone with the Aranet4 and checking the MAC address in your phone's settings, or use a BLE scanner app.
+First, you have to figure out the MAC address of your Aranet4 device. You can do this by pairing your phone with the Aranet4 and checking the MAC address in your phone's Bluetooth settings, or use a BLE scanner app.
 
 Then, add the follow configuration to your ESPHome:
 
@@ -27,7 +27,7 @@ packages:
   stefanthoss.esphome-aranet4: github://stefanthoss/esphome-aranet4/esphome-aranet4.yaml@main
 ```
 
-The `aranet4_name` parameter is used to name the sensor in Home Assistant. `aranet4_mac_address` should be the MAC address of the Aranet4.
+The `aranet4_name` parameter is used to name the sensor in Home Assistant. `aranet4_mac_address` should be the MAC address of your Aranet4.
 
 ## Home Assistant Sensors
 
