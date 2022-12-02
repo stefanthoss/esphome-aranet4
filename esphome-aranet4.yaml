@@ -22,7 +22,7 @@ sensor:
     name: "${aranet4_name} Temperature"
     state_class: "measurement"
     device_class: "temperature"
-    accuracy_decimals: 2
+    accuracy_decimals: 1
     unit_of_measurement: "°C"
     lambda: |-
       return (x[2] | x[3] << 8) / 20.0;
